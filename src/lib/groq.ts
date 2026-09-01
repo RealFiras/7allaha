@@ -1,5 +1,5 @@
 // Groq API client for AI tools — uses VITE_GROQ_API_KEY
-// Model: llama-3.3-70b-versatile (fast + high quality, free tier generous)
+// Model: allam-2-7b (fast + high quality, free tier generous)
 
 const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
 
@@ -18,7 +18,7 @@ export async function groqChat(prompt: string, systemPrompt?: string): Promise<s
       Authorization: `Bearer ${key}`,
     },
     body: JSON.stringify({
-      model: 'llama-3.3-70b-versatile',
+      model: 'allam-2-7b',
       messages: [
         ...(systemPrompt ? [{ role: 'system', content: systemPrompt }] : []),
         { role: 'user', content: prompt },

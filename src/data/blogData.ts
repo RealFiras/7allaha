@@ -1,5 +1,6 @@
 import { BlogPost } from '../types';
 import { SEO_BLOG_POSTS } from './seoBlogData';
+import { SEO_BLOG_POSTS_2 } from './seoBlogData2';
 
 export const BLOG_POSTS: BlogPost[] = [
   {
@@ -348,4 +349,5 @@ $$\\text{EMI} = P \\times r \\times \\frac{(1 + r)^n}{(1 + r)^n - 1}$$
 `,
   },
   ...SEO_BLOG_POSTS,
+  ...SEO_BLOG_POSTS_2,
 ];
