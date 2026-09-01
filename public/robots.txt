@@ -1,5 +1,5 @@
-# robots.txt for Adawaty (أدواتي)
+# robots.txt for 7allaha (حلّها)
 User-agent: *
 Allow: /
 
-Sitemap: https://adawaty.com/sitemap.xml
+Sitemap: https://7allaha.xyz/sitemap.xml
