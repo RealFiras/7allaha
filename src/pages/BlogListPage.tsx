@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BookOpen, Clock, Calendar, ArrowLeft, ArrowRight, Search } from 'lucide-react';
 import { BLOG_POSTS } from '../data/blogData';
 import { Breadcrumb } from '../components/Breadcrumb';
+import { AdBanner } from '../components/AdBanner';
 import { useLanguage } from '../context/LanguageContext';
 
 interface BlogListPageProps {
@@ -102,9 +103,66 @@ export const BlogListPage: React.FC<BlogListPageProps> = ({ onSelectPost }) => {
         </div>
       </div>
 
-      {/* Articles Grid */}
+      {/* Articles Grid with a mid-grid ad after the first 4 posts */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {filteredPosts.map((post) => {
+        {filteredPosts.slice(0, 4).map((post) => {
+          const title = (language === 'en' && post.titleEn) ? post.titleEn : post.title;
+          const excerpt = (language === 'en' && post.excerptEn) ? post.excerptEn : post.excerpt;
+          const category = (language === 'en' && post.categoryEn) ? post.categoryEn : post.category;
+
+          return (
+            <article
+              key={post.id}
+              onClick={() => onSelectPost(post.slug)}
+              className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-6 sm:p-7 shadow-xs hover:shadow-md hover:border-teal-300 dark:hover:border-teal-700 transition-all flex flex-col justify-between space-y-5 cursor-pointer group"
+            >
+              <div className="space-y-3.5">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 font-extrabold border border-teal-200 dark:border-teal-800">
+                    {category}
+                  </span>
+
+                  <div className="flex items-center gap-1.5 text-slate-400">
+                    <Clock className="w-3.5 h-3.5" />
+                    <span>
+                      {language === 'ar'
+                        ? `قراءة ${post.readingTimeMinutes} دقائق`
+                        : `${post.readingTimeMinutes} min read`}
+                    </span>
+                  </div>
+                </div>
+
+                <h2 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-snug">
+                  {title}
+                </h2>
+
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-tajawal line-clamp-3">
+                  {excerpt}
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                <div className="flex items-center gap-2 text-xs text-slate-400">
+                  <Calendar className="w-3.5 h-3.5" />
+                  <span>{post.publishDate}</span>
+                </div>
+
+                <span className="text-xs font-bold text-teal-600 dark:text-teal-400 flex items-center gap-1 group-hover:-translate-x-1 rtl:group-hover:-translate-x-1 ltr:group-hover:translate-x-1 transition-transform">
+                  <span>{language === 'ar' ? 'اقرأ المقال بالكامل' : 'Read full article'}</span>
+                  <ArrowIcon className="w-4 h-4" />
+                </span>
+              </div>
+            </article>
+          );
+        })}
+
+        {filteredPosts.length > 4 && (
+          <div className="md:col-span-2">
+            <AdBanner format="horizontal" />
+          </div>
+        )}
+
+        {filteredPosts.slice(4).map((post) => {
           const title = (language === 'en' && post.titleEn) ? post.titleEn : post.title;
           const excerpt = (language === 'en' && post.excerptEn) ? post.excerptEn : post.excerpt;
           const category = (language === 'en' && post.categoryEn) ? post.categoryEn : post.category;

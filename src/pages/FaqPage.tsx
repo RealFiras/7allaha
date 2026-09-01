@@ -4,6 +4,7 @@ import { GENERAL_FAQS } from '../data/faqData';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { DynamicIcon } from '../components/DynamicIcon';
 import { useLanguage } from '../context/LanguageContext';
+import { AdBanner } from '../components/AdBanner';
 
 interface FaqPageProps {
   onNavigate: (route: string) => void;
@@ -129,6 +130,9 @@ export const FaqPage: React.FC<FaqPageProps> = ({ onNavigate }) => {
           );
         })}
       </div>
+
+      {/* Ad before CTA */}
+      <AdBanner format="horizontal" />
 
       {/* Still need help CTA */}
       <div className="bg-gradient-to-r from-teal-600 to-violet-700 text-white rounded-3xl p-8 sm:p-10 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-start">

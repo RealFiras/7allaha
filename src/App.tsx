@@ -417,6 +417,9 @@ export function App() {
               )}
             </div>
 
+            {/* Ad after tools grid */}
+            <AdBanner format="horizontal" />
+
             {/* Why Choose 7allaha Banner */}
             <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-8 sm:p-10 shadow-xs transition-colors">
               <div className="max-w-3xl mx-auto text-center space-y-4">
@@ -544,6 +547,9 @@ export function App() {
                 ))}
               </div>
             </div>
+
+            {/* Bottom ad on tool pages */}
+            <AdBanner format="rectangle" />
 
           </div>
         )}
