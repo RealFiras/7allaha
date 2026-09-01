@@ -1,5 +1,11 @@
-import React from 'react';
-import { useLanguage } from '../context/LanguageContext';
+import React, { useEffect } from 'react';
+import { ADSENSE_CLIENT, AD_SLOTS } from '../config/ads';
+
+declare global {
+  interface Window {
+    adsbygoogle?: unknown[];
+  }
+}
 
 interface AdBannerProps {
   slotId?: string;
@@ -7,38 +13,38 @@ interface AdBannerProps {
   className?: string;
 }
 
-export const AdBanner: React.FC<AdBannerProps> = ({ format = 'horizontal', className = '' }) => {
-  const { language } = useLanguage();
+const FORMAT_CONFIG: Record<string, { slotKey: keyof typeof AD_SLOTS; adFormat: string; minHeight: string; layoutKey?: string }> = {
+  horizontal: { slotKey: 'horizontal', adFormat: 'auto', minHeight: 'min-h-[90px] sm:min-h-[110px]' },
+  rectangle: { slotKey: 'rectangle', adFormat: 'rectangle', minHeight: 'min-h-[250px]' },
+  'in-feed': { slotKey: 'inFeed', adFormat: 'fluid', minHeight: 'min-h-[120px]', layoutKey: '-fb+5w+4e-db+86' },
+};
+
+export const AdBanner: React.FC<AdBannerProps> = ({ slotId, format = 'horizontal', className = '' }) => {
+  const config = FORMAT_CONFIG[format];
+  const finalSlotId = slotId || (config ? AD_SLOTS[config.slotKey] : '');
+
+  useEffect(() => {
+    if (!finalSlotId) return;
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch {
+      // AdSense script not loaded yet or unit already filled
+    }
+  }, [finalSlotId]);
+
+  if (!finalSlotId) return null;
 
   return (
-    <div className={`w-full overflow-hidden my-6 ${className}`}>
-      <div className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl border border-dashed border-gray-200 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/40 text-center transition-colors">
-        <div className="flex items-center justify-between w-full max-w-2xl px-2 mb-2 text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">
-          <span>{language === 'ar' ? 'إعلان ممول • Sponsored Ad' : 'Sponsored Ad'}</span>
-          <span>Google AdSense</span>
-        </div>
-
-        {/* Ad Placeholder Box (Ready for AdSense Script Auto-fill) */}
-        <div
-          className={`w-full flex flex-col items-center justify-center rounded-xl bg-white dark:bg-gray-900/80 border border-gray-100 dark:border-gray-800/80 text-gray-400 dark:text-gray-500 text-xs ${
-            format === 'horizontal'
-              ? 'h-24 sm:h-28 max-w-4xl'
-              : format === 'rectangle'
-              ? 'h-64 max-w-sm'
-              : 'h-32 max-w-3xl'
-          }`}
-        >
-          <span className="font-semibold text-gray-400 dark:text-gray-500">
-            {language === 'ar' ? 'مساحة إعلانية متوافقة مع Google AdSense' : 'Google AdSense Compatible Ad Slot'}
-          </span>
-          <span className="text-[11px] text-gray-300 dark:text-gray-600 mt-1">
-            {language === 'ar'
-              ? '(يتم ملء هذه المساحة تلقائياً بعد تفعيل حساب الناشر)'
-              : '(Auto-filled upon publisher account verification)'}
-          </span>
-        </div>
-      </div>
+    <div className={`w-full overflow-hidden my-6 flex justify-center ${className}`}>
+      <ins
+        className={`adsbygoogle ${config.minHeight}`}
+        style={{ display: 'block', width: '100%' }}
+        data-ad-client={ADSENSE_CLIENT}
+        data-ad-slot={finalSlotId}
+        data-ad-format={config.adFormat}
+        {...(config.layoutKey ? { 'data-ad-layout-key': config.layoutKey } : {})}
+        data-full-width-responsive="true"
+      />
     </div>
   );
 };
-

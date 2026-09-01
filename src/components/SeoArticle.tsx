@@ -3,6 +3,7 @@ import { HelpCircle, ChevronDown, CheckCircle2, Users, Sparkles, ArrowLeft, Arro
 import { ToolDefinition } from '../types';
 import { TOOLS } from '../data/toolsData';
 import { useLanguage } from '../context/LanguageContext';
+import { AdBanner } from './AdBanner';
 
 interface SeoArticleProps {
   tool: ToolDefinition;
@@ -19,15 +20,8 @@ export const SeoArticle: React.FC<SeoArticleProps> = ({ tool, onSelectTool }) =>
 
   return (
     <div className="mt-12 space-y-10 border-t border-slate-200 dark:border-slate-800 pt-10">
-      {/* Clean AdSense Ready Placeholder */}
-      <div className="bg-slate-50 dark:bg-slate-900/40 border border-dashed border-slate-300 dark:border-slate-800 rounded-2xl p-4 text-center text-xs text-slate-500 dark:text-slate-400">
-        <span className="inline-block bg-slate-200 dark:bg-slate-800 px-2.5 py-0.5 rounded-full text-[11px] font-bold text-slate-600 dark:text-slate-300 mb-1">
-          {language === 'ar' ? 'مساحة إعلانية مخصصة (Google AdSense Slot)' : 'Advertisement (Google AdSense Slot)'}
-        </span>
-        <p className="text-slate-400 dark:text-slate-500">
-          {language === 'ar' ? 'إعلانات سريعة ومتجاوبة مع الهواتف والشاشات الكبيرة' : 'Responsive, fast-loading ad unit'}
-        </p>
-      </div>
+      {/* AdSense Ad Unit */}
+      <AdBanner format="horizontal" />
 
       {/* Main Educational Article */}
       <article className="prose prose-slate dark:prose-invert max-w-none">
