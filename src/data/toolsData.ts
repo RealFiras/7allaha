@@ -1148,5 +1148,26 @@ export const TOOLS: ToolDefinition[] = [
       }
     ],
     relatedToolIds: ['prayer-times', 'hijri-converter', 'unit-converter']
+  },
+  {
+    id: 'ai-text-tool',
+    slug: 'ai-text-tool',
+    path: '/tools/ai-text-tool',
+    name: 'مساعد النص الذكي (Groq AI)',
+    shortDescription: 'لخّص وحسّن نصوصك فورياً بالذكاء الاصطناعي Groq Llama 3.3 بسرعة فائقة.',
+    category: 'text',
+    iconName: 'Sparkles',
+    isPopular: true,
+    isFeatured: true,
+    metaTitle: 'مساعد النص الذكي — تلخيص وتحسين لغوي بالذكاء الاصطناعي | حلّها',
+    metaDescription: 'لخّص مقالاتك وحسّن نصوصك لغوياً بضغطة زر باستخدام Groq Llama 3.3 السريع.',
+    keywords: ['تلخيص نصوص', 'تحسين لغوي', 'ذكاء اصطناعي عربي', 'Groq', 'مدقق لغوي'],
+    seoTitle: 'مساعد النص الذكي — تلخيص وتحسين فوري',
+    whatIsIt: 'أداة ذكاء اصطناعي مدعومة بـ Groq Llama 3.3 لتلخيص النصوص الطويلة وتحسين الصياغة العربية بدقة وسرعة.',
+    howToUse: ['اختر الوضع: تلخيص أو تحسين', 'الصق النص واضغط المعالجة', 'انسخ النتيجة بضغطة زر'],
+    whoIsItFor: ['الطلاب والباحثون', 'كتّاب المحتوى', 'موظفو المكاتب'],
+    features: ['تلخيص ذكي', 'تحسين لغوي', 'سرعة Groq الفائقة', 'دعم كامل للعربية'],
+    faqs: [{ question: 'هل النصوص تُحفظ؟', answer: 'لا، المعالجة لحظية ولا نخزن أي نص.' }],
+    relatedToolIds: ['word-counter', 'text-diff', 'name-generator']
   }
 ];

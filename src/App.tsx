@@ -23,6 +23,7 @@ import { SeoArticle } from './components/SeoArticle';
 import { DynamicIcon } from './components/DynamicIcon';
 import { SocialShare } from './components/SocialShare';
 import { AdBanner } from './components/AdBanner';
+import { SchemaOrg } from './components/SchemaOrg';
 import { RecentlyUsed, saveRecentlyUsedTool } from './components/RecentlyUsed';
 
 import { TOOLS, CATEGORIES } from './data/toolsData';
@@ -49,7 +50,8 @@ import { ZakatCalculator } from './tools/ZakatCalculator';
 import { InvoiceGenerator } from './tools/InvoiceGenerator';
 import { ImageResizer } from './tools/ImageResizer';
 import { ImageConverter } from './tools/ImageConverter';
-import { BackgroundRemover } from './tools/BackgroundRemover';
+const BackgroundRemover = React.lazy(() => import('./tools/BackgroundRemover').then(m => ({ default: m.BackgroundRemover })));
+const AiTextTool = React.lazy(() => import('./tools/AiTextTool').then(m => ({ default: m.AiTextTool })));
 import { NameGenerator } from './tools/NameGenerator';
 import { CalorieCalculator } from './tools/CalorieCalculator';
 import { PomodoroTimer } from './tools/PomodoroTimer';
@@ -191,7 +193,11 @@ export function App() {
       case 'image-converter':
         return <ImageConverter />;
       case 'background-remover':
-        return <BackgroundRemover />;
+        return (
+          <React.Suspense fallback={<div className="p-12 text-center text-slate-400">جاري تحميل أداة إزالة الخلفية...</div>}>
+            <BackgroundRemover />
+          </React.Suspense>
+        );
       case 'name-generator':
         return <NameGenerator />;
       case 'calorie-calculator':
@@ -200,6 +206,13 @@ export function App() {
         return <PomodoroTimer />;
       case 'timezone-converter':
         return <TimezoneConverter />;
+      case 'ai-text-tool':
+      case 'ai-summarizer':
+        return (
+          <React.Suspense fallback={<div className="p-12 text-center text-slate-400">جاري تحميل المساعد الذكي...</div>}>
+            <AiTextTool />
+          </React.Suspense>
+        );
       default:
         return null;
     }
@@ -498,6 +511,8 @@ export function App() {
                 </button>
               </div>
             </div>
+
+            <SchemaOrg tool={currentTool} />
 
             {/* Social Share Bar */}
             <SocialShare title={currentTool.name} />
