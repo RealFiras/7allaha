@@ -60,11 +60,9 @@
 
 ## 📸 لقطات
 
-| الرئيسية | أداة | المدونة |
+| الرئيسية | أداة BMI | المدونة |
 |----------|------|---------|
-| ![Home](https://via.placeholder.com/350x200/14B8A6/FFF?text=7allaha+Home) | ![Tool](https://via.placeholder.com/350x200/8B5CF6/FFF?text=Tool+Page) | ![Blog](https://via.placeholder.com/350x200/0F172A/FFF?text=Blog) |
-
-> ضع لقطات حقيقية في `public/screenshots/` وحدّث الروابط أعلاه.
+| ![Home](./public/screenshots/home.png) | ![Tool](./public/screenshots/tool.png) | ![Blog](./public/screenshots/blog.png) |
 
 ---
 
