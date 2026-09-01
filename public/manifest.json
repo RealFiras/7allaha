@@ -1,0 +1,18 @@
+{
+  "name": "حلّها - أي مشكلة... حلّها بثانية",
+  "short_name": "حلّها",
+  "description": "أدوات مجانية يومية بضغطة زر: حاسبات، تحويل وحدات وعملات، زكاة وفواتير، نصوص، وأوقات صلاة.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0F172A",
+  "theme_color": "#14B8A6",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

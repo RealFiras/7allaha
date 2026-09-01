@@ -1,0 +1,5 @@
+# robots.txt for Adawaty (أدواتي)
+User-agent: *
+Allow: /
+
+Sitemap: https://adawaty.com/sitemap.xml

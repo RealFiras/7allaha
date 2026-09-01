@@ -1,0 +1,10 @@
+{
+  "name": "حلّها - أي مشكلة... حلّها بثانية",
+  "description": "منصة حلّها (7allaha) - الأدوات اليومية المجانية بضغطة زر: أدوات الصور والذكاء الاصطناعي، حاسبات قروض وزكاة، مولد فواتير، تحويل عملات، مواقيت الصلاة وأدوات النصوص.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
