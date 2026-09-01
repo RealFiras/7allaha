@@ -23,6 +23,7 @@ import { SeoArticle } from './components/SeoArticle';
 import { DynamicIcon } from './components/DynamicIcon';
 import { SocialShare } from './components/SocialShare';
 import { AdBanner } from './components/AdBanner';
+import { StickyAd } from './components/StickyAd';
 import { SchemaOrg } from './components/SchemaOrg';
 import { RecentlyUsed, saveRecentlyUsedTool } from './components/RecentlyUsed';
 
@@ -52,6 +53,9 @@ import { ImageResizer } from './tools/ImageResizer';
 import { ImageConverter } from './tools/ImageConverter';
 const BackgroundRemover = React.lazy(() => import('./tools/BackgroundRemover').then(m => ({ default: m.BackgroundRemover })));
 const AiTextTool = React.lazy(() => import('./tools/AiTextTool').then(m => ({ default: m.AiTextTool })));
+const SalaryCalculator = React.lazy(() => import('./tools/SalaryCalculator').then(m => ({ default: m.SalaryCalculator })));
+const ResumeBuilder = React.lazy(() => import('./tools/ResumeBuilder').then(m => ({ default: m.ResumeBuilder })));
+const SavingsCalculator = React.lazy(() => import('./tools/SavingsCalculator').then(m => ({ default: m.SavingsCalculator })));
 import { NameGenerator } from './tools/NameGenerator';
 import { CalorieCalculator } from './tools/CalorieCalculator';
 import { PomodoroTimer } from './tools/PomodoroTimer';
@@ -211,6 +215,25 @@ export function App() {
         return (
           <React.Suspense fallback={<div className="p-12 text-center text-slate-400">جاري تحميل المساعد الذكي...</div>}>
             <AiTextTool />
+          </React.Suspense>
+        );
+      case 'salary-calculator':
+        return (
+          <React.Suspense fallback={<div className="p-12 text-center text-slate-400">جاري التحميل...</div>}>
+            <SalaryCalculator />
+          </React.Suspense>
+        );
+      case 'resume-builder':
+      case 'cv-builder':
+        return (
+          <React.Suspense fallback={<div className="p-12 text-center text-slate-400">جاري التحميل...</div>}>
+            <ResumeBuilder />
+          </React.Suspense>
+        );
+      case 'savings-calculator':
+        return (
+          <React.Suspense fallback={<div className="p-12 text-center text-slate-400">جاري التحميل...</div>}>
+            <SavingsCalculator />
           </React.Suspense>
         );
       default:
@@ -616,6 +639,9 @@ export function App() {
         onClose={() => setIsSearchOpen(false)}
         onSelectTool={(id) => navigateTo(`tool/${id}`)}
       />
+
+      {/* Sticky bottom ad (dismissible) */}
+      <StickyAd />
 
       {/* GDPR / Privacy Cookie Consent Banner */}
       <CookieConsent onNavigate={navigateTo} />

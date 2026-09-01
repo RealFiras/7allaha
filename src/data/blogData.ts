@@ -1,4 +1,5 @@
 import { BlogPost } from '../types';
+import { SEO_BLOG_POSTS } from './seoBlogData';
 
 export const BLOG_POSTS: BlogPost[] = [
   {
@@ -346,4 +347,5 @@ $$\\text{EMI} = P \\times r \\times \\frac{(1 + r)^n}{(1 + r)^n - 1}$$
 لست بحاجة لشراء مؤقت مادي؛ يمكنك تشغيل **مؤقت بومودورو الذكي** على موقع حلّها، والذي يوفر لك إشعارات صوتية مريحة، تتبعاً لعدد الجلسات المكتملة، وتخصيصاً كاملاً لفترات العمل والراحة.
 `,
   },
+  ...SEO_BLOG_POSTS,
 ];
