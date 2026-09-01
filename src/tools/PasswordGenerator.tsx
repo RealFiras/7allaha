@@ -98,7 +98,7 @@ export const PasswordGenerator: React.FC = () => {
 
   return (
     <div className="space-y-8">
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm p-6 sm:p-8 space-y-6">
         
         {/* Main Display Box */}
         <div className="bg-slate-900 text-white rounded-2xl p-5 sm:p-6 space-y-4 shadow-xl">
@@ -154,7 +154,7 @@ export const PasswordGenerator: React.FC = () => {
           {/* Length Slider */}
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <label className="text-sm font-bold text-slate-800">
+              <label className="text-sm font-bold text-slate-800 dark:text-slate-100">
                 طول كلمة المرور (عدد الخانات)
               </label>
               <span className="text-base font-extrabold text-blue-600 bg-blue-50 px-3 py-0.5 rounded-lg border border-blue-100">
@@ -167,7 +167,7 @@ export const PasswordGenerator: React.FC = () => {
               max="64"
               value={length}
               onChange={(e) => setLength(Number(e.target.value))}
-              className="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+              className="w-full h-2.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-600"
             />
             <div className="flex justify-between text-xs text-slate-400 font-medium">
               <span>6 (بسيطة)</span>
@@ -180,67 +180,67 @@ export const PasswordGenerator: React.FC = () => {
           {/* Checkboxes Options Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
             
-            <label className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition-colors">
+            <label className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
               <input
                 type="checkbox"
                 checked={includeUpper}
                 onChange={(e) => setIncludeUpper(e.target.checked)}
-                className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
+                className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300 dark:border-slate-600"
               />
               <div className="text-xs">
-                <span className="font-bold text-slate-800 block">أحرف كبيرة (A-Z)</span>
+                <span className="font-bold text-slate-800 dark:text-slate-100 block">أحرف كبيرة (A-Z)</span>
                 <span className="text-slate-400">تتضمن ABCDEFGHIJKLMNOPQRSTUVWXYZ</span>
               </div>
             </label>
 
-            <label className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition-colors">
+            <label className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
               <input
                 type="checkbox"
                 checked={includeLower}
                 onChange={(e) => setIncludeLower(e.target.checked)}
-                className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
+                className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300 dark:border-slate-600"
               />
               <div className="text-xs">
-                <span className="font-bold text-slate-800 block">أحرف صغيرة (a-z)</span>
+                <span className="font-bold text-slate-800 dark:text-slate-100 block">أحرف صغيرة (a-z)</span>
                 <span className="text-slate-400">تتضمن abcdefghijklmnopqrstuvwxyz</span>
               </div>
             </label>
 
-            <label className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition-colors">
+            <label className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
               <input
                 type="checkbox"
                 checked={includeNumbers}
                 onChange={(e) => setIncludeNumbers(e.target.checked)}
-                className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
+                className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300 dark:border-slate-600"
               />
               <div className="text-xs">
-                <span className="font-bold text-slate-800 block">أرقام (0-9)</span>
+                <span className="font-bold text-slate-800 dark:text-slate-100 block">أرقام (0-9)</span>
                 <span className="text-slate-400">تتضمن 0123456789</span>
               </div>
             </label>
 
-            <label className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition-colors">
+            <label className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
               <input
                 type="checkbox"
                 checked={includeSymbols}
                 onChange={(e) => setIncludeSymbols(e.target.checked)}
-                className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
+                className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300 dark:border-slate-600"
               />
               <div className="text-xs">
-                <span className="font-bold text-slate-800 block">رموز خاصة (@#$%)</span>
+                <span className="font-bold text-slate-800 dark:text-slate-100 block">رموز خاصة (@#$%)</span>
                 <span className="text-slate-400">تتضمن !@#$%^&*()_+-=</span>
               </div>
             </label>
 
-            <label className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition-colors sm:col-span-2">
+            <label className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors sm:col-span-2">
               <input
                 type="checkbox"
                 checked={excludeSimilar}
                 onChange={(e) => setExcludeSimilar(e.target.checked)}
-                className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300"
+                className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300 dark:border-slate-600"
               />
               <div className="text-xs">
-                <span className="font-bold text-slate-800 block">استبعاد الأحرف المتشابهة بصرياً</span>
+                <span className="font-bold text-slate-800 dark:text-slate-100 block">استبعاد الأحرف المتشابهة بصرياً</span>
                 <span className="text-slate-400">تجنب الالتباس بين (l, 1, I, O, 0)</span>
               </div>
             </label>
@@ -248,7 +248,7 @@ export const PasswordGenerator: React.FC = () => {
           </div>
 
           {/* Batch Generation selector */}
-          <div className="flex items-center justify-between pt-2 border-t border-slate-100">
+          <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-700">
             <span className="text-xs font-bold text-slate-600">
               توليد قائمة كلمات مرور متعددة للاختيار:
             </span>
@@ -261,7 +261,7 @@ export const PasswordGenerator: React.FC = () => {
                   className={`px-3 py-1 rounded-lg text-xs font-bold transition-colors ${
                     batchCount === cnt
                       ? 'bg-blue-600 text-white'
-                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
                   }`}
                 >
                   {cnt} {cnt === 1 ? 'كلمة' : 'كلمات'}
@@ -276,9 +276,9 @@ export const PasswordGenerator: React.FC = () => {
               {passwords.map((pass, idx) => (
                 <div
                   key={idx}
-                  className="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between gap-3 text-xs"
+                  className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-between gap-3 text-xs"
                 >
-                  <span className="font-mono text-slate-800 font-bold select-all truncate">
+                  <span className="font-mono text-slate-800 dark:text-slate-100 font-bold select-all truncate">
                     {pass}
                   </span>
                   <button

@@ -127,20 +127,20 @@ export const QrGenerator: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-3xl border border-gray-200/80 shadow-xs p-6 sm:p-8 space-y-6">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl border border-gray-200/80 dark:border-slate-700 shadow-xs p-6 sm:p-8 space-y-6">
         
         {/* Title Header */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-gray-100 pb-5">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-gray-100 dark:border-slate-800 pb-5">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
                 <QrCode className="w-4 h-4" />
               </div>
-              <h2 className="text-xl font-bold text-gray-900">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                 صانع ومولد رموز QR Code الاحترافي
               </h2>
             </div>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-500 dark:text-slate-400">
               توليد باركود فائق الجودة لروابط المواقع، شبكات الواي فاي، جهات الاتصال وواتساب مجاناً
             </p>
           </div>
@@ -152,14 +152,14 @@ export const QrGenerator: React.FC = () => {
         </div>
 
         {/* Type Selector Tabs */}
-        <div className="flex flex-wrap gap-2 p-1.5 bg-gray-100/80 rounded-2xl border border-gray-200/60">
+        <div className="flex flex-wrap gap-2 p-1.5 bg-gray-100/80 dark:bg-slate-800 rounded-2xl border border-gray-200/60 dark:border-slate-700">
           <button
             type="button"
             onClick={() => setType('url')}
             className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               type === 'url'
-                ? 'bg-white text-blue-600 shadow-xs'
-                : 'text-gray-600 hover:text-gray-900'
+                ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-xs'
+                : 'text-gray-600 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'
             }`}
           >
             <Link className="w-4 h-4" />
@@ -171,8 +171,8 @@ export const QrGenerator: React.FC = () => {
             onClick={() => setType('text')}
             className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               type === 'text'
-                ? 'bg-white text-blue-600 shadow-xs'
-                : 'text-gray-600 hover:text-gray-900'
+                ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-xs'
+                : 'text-gray-600 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'
             }`}
           >
             <Type className="w-4 h-4" />
@@ -184,8 +184,8 @@ export const QrGenerator: React.FC = () => {
             onClick={() => setType('wifi')}
             className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               type === 'wifi'
-                ? 'bg-white text-blue-600 shadow-xs'
-                : 'text-gray-600 hover:text-gray-900'
+                ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-xs'
+                : 'text-gray-600 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'
             }`}
           >
             <Wifi className="w-4 h-4" />
@@ -197,8 +197,8 @@ export const QrGenerator: React.FC = () => {
             onClick={() => setType('whatsapp')}
             className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               type === 'whatsapp'
-                ? 'bg-white text-emerald-600 shadow-xs'
-                : 'text-gray-600 hover:text-gray-900'
+                ? 'bg-white dark:bg-slate-700 text-emerald-600 dark:text-emerald-400 shadow-xs'
+                : 'text-gray-600 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'
             }`}
           >
             <MessageSquare className="w-4 h-4" />
@@ -210,8 +210,8 @@ export const QrGenerator: React.FC = () => {
             onClick={() => setType('phone')}
             className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               type === 'phone'
-                ? 'bg-white text-blue-600 shadow-xs'
-                : 'text-gray-600 hover:text-gray-900'
+                ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-xs'
+                : 'text-gray-600 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'
             }`}
           >
             <Phone className="w-4 h-4" />
@@ -223,8 +223,8 @@ export const QrGenerator: React.FC = () => {
             onClick={() => setType('email')}
             className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
               type === 'email'
-                ? 'bg-white text-blue-600 shadow-xs'
-                : 'text-gray-600 hover:text-gray-900'
+                ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-xs'
+                : 'text-gray-600 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'
             }`}
           >
             <Mail className="w-4 h-4" />
@@ -240,7 +240,7 @@ export const QrGenerator: React.FC = () => {
             
             {type === 'url' && (
               <div className="space-y-2">
-                <label className="block text-xs font-bold text-gray-700">
+                <label className="block text-xs font-bold text-gray-700 dark:text-slate-200">
                   رابط الموقع الإلكتروني المستهدف:
                 </label>
                 <input
@@ -249,14 +249,14 @@ export const QrGenerator: React.FC = () => {
                   onChange={(e) => setUrl(e.target.value)}
                   placeholder="https://adawaty.com"
                   dir="ltr"
-                  className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 font-semibold text-gray-800 text-sm focus:outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-slate-600 dark:bg-slate-800 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-900/40 font-semibold text-gray-800 dark:text-slate-100 text-sm focus:outline-none transition-all"
                 />
               </div>
             )}
 
             {type === 'text' && (
               <div className="space-y-2">
-                <label className="block text-xs font-bold text-gray-700">
+                <label className="block text-xs font-bold text-gray-700 dark:text-slate-200">
                   النص أو الرسالة المضمنة في الباركود:
                 </label>
                 <textarea
@@ -264,15 +264,15 @@ export const QrGenerator: React.FC = () => {
                   value={text}
                   onChange={(e) => setText(e.target.value)}
                   placeholder="اكتب أي نص أو ملاحظة أو كود سري هنا..."
-                  className="w-full p-4 rounded-2xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 text-gray-800 font-tajawal text-sm focus:outline-none transition-all"
+                  className="w-full p-4 rounded-2xl border border-gray-200 dark:border-slate-600 dark:bg-slate-800 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-900/40 text-gray-800 dark:text-slate-100 font-tajawal text-sm focus:outline-none transition-all"
                 />
               </div>
             )}
 
             {type === 'wifi' && (
-              <div className="space-y-4 bg-gray-50/70 p-5 rounded-2xl border border-gray-200/60">
+              <div className="space-y-4 bg-gray-50/70 dark:bg-slate-800/60 p-5 rounded-2xl border border-gray-200/60 dark:border-slate-700">
                 <div className="space-y-1.5">
-                  <label className="block text-xs font-bold text-gray-700">
+                  <label className="block text-xs font-bold text-gray-700 dark:text-slate-200">
                     اسم شبكة الواي فاي (Network SSID):
                   </label>
                   <input
@@ -281,12 +281,12 @@ export const QrGenerator: React.FC = () => {
                     onChange={(e) => setWifiSsid(e.target.value)}
                     placeholder="مثال: Home_Fiber_5G"
                     dir="ltr"
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 text-gray-800 font-semibold text-sm focus:outline-none"
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-800 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-900/40 text-gray-800 dark:text-slate-100 font-semibold text-sm focus:outline-none"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="block text-xs font-bold text-gray-700">
+                  <label className="block text-xs font-bold text-gray-700 dark:text-slate-200">
                     كلمة سر الشبكة (Wi-Fi Password):
                   </label>
                   <input
@@ -295,19 +295,19 @@ export const QrGenerator: React.FC = () => {
                     onChange={(e) => setWifiPassword(e.target.value)}
                     placeholder="أدخل كلمة المرور"
                     dir="ltr"
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100 text-gray-800 font-mono text-sm focus:outline-none"
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-800 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-900/40 text-gray-800 dark:text-slate-100 font-mono text-sm focus:outline-none"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 pt-1">
                   <div>
-                    <label className="block text-xs font-bold text-gray-700 mb-1">
+                    <label className="block text-xs font-bold text-gray-700 dark:text-slate-200 mb-1">
                       نوع الأمان والتشفير:
                     </label>
                     <select
                       value={wifiEncryption}
                       onChange={(e) => setWifiEncryption(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl border border-gray-200 bg-white text-xs font-bold text-gray-700 focus:outline-none"
+                      className="w-full px-3 py-2 rounded-xl border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-xs font-bold text-gray-700 dark:text-slate-200 focus:outline-none"
                     >
                       <option value="WPA">WPA / WPA2 / WPA3 (الأكثر شيوعاً)</option>
                       <option value="WEP">WEP</option>
@@ -315,7 +315,7 @@ export const QrGenerator: React.FC = () => {
                     </select>
                   </div>
                   <div className="flex items-center pt-5">
-                    <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-gray-700">
+                    <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-gray-700 dark:text-slate-200">
                       <input
                         type="checkbox"
                         checked={wifiHidden}
@@ -330,9 +330,9 @@ export const QrGenerator: React.FC = () => {
             )}
 
             {type === 'whatsapp' && (
-              <div className="space-y-4 bg-emerald-50/40 p-5 rounded-2xl border border-emerald-100">
+              <div className="space-y-4 bg-emerald-50/40 dark:bg-emerald-950/20 p-5 rounded-2xl border border-emerald-100 dark:border-emerald-800/50">
                 <div className="space-y-1.5">
-                  <label className="block text-xs font-bold text-gray-700">
+                  <label className="block text-xs font-bold text-gray-700 dark:text-slate-200">
                     رقم هاتف الواتساب (مع رمز الدولة وبدون إشارة + أو أصفار أولية):
                   </label>
                   <input
@@ -341,12 +341,12 @@ export const QrGenerator: React.FC = () => {
                     onChange={(e) => setWhatsappPhone(e.target.value)}
                     placeholder="مثال: 966500000000"
                     dir="ltr"
-                    className="w-full px-4 py-2.5 rounded-xl border border-emerald-200 bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 text-gray-800 font-mono text-sm focus:outline-none"
+                    className="w-full px-4 py-2.5 rounded-xl border border-emerald-200 dark:border-slate-600 bg-white dark:bg-slate-800 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 dark:focus:ring-emerald-900/40 text-gray-800 dark:text-slate-100 font-mono text-sm focus:outline-none"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="block text-xs font-bold text-gray-700">
+                  <label className="block text-xs font-bold text-gray-700 dark:text-slate-200">
                     الرسالة الافتراضية الجاهزة للمحادثة:
                   </label>
                   <textarea
@@ -354,7 +354,7 @@ export const QrGenerator: React.FC = () => {
                     value={whatsappMessage}
                     onChange={(e) => setWhatsappMessage(e.target.value)}
                     placeholder="الرسالة التي ستظهر تلقائياً عند مسح الرمز..."
-                    className="w-full p-3 rounded-xl border border-emerald-200 bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 text-gray-800 text-sm focus:outline-none"
+                    className="w-full p-3 rounded-xl border border-emerald-200 dark:border-slate-600 bg-white dark:bg-slate-800 focus:border-emerald-500 dark:focus:border-emerald-600 focus:ring-4 focus:ring-emerald-100 dark:focus:ring-emerald-900/40 text-gray-800 dark:text-slate-100 text-sm focus:outline-none"
                   />
                 </div>
               </div>
@@ -362,7 +362,7 @@ export const QrGenerator: React.FC = () => {
 
             {type === 'phone' && (
               <div className="space-y-2">
-                <label className="block text-xs font-bold text-gray-700">
+                <label className="block text-xs font-bold text-gray-700 dark:text-slate-200">
                   رقم الهاتف للاتصال الفوري (مع مفتاح الدولة):
                 </label>
                 <input
@@ -371,7 +371,7 @@ export const QrGenerator: React.FC = () => {
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+966500000000"
                   dir="ltr"
-                  className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 font-semibold text-gray-800 text-sm focus:outline-none"
+                  className="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-slate-600 dark:bg-slate-800 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-900/40 font-semibold text-gray-800 dark:text-slate-100 text-sm focus:outline-none"
                 />
               </div>
             )}
@@ -379,7 +379,7 @@ export const QrGenerator: React.FC = () => {
             {type === 'email' && (
               <div className="space-y-3">
                 <div className="space-y-1">
-                  <label className="block text-xs font-bold text-gray-700">
+                  <label className="block text-xs font-bold text-gray-700 dark:text-slate-200">
                     البريد الإلكتروني المستلم:
                   </label>
                   <input
@@ -388,11 +388,11 @@ export const QrGenerator: React.FC = () => {
                     onChange={(e) => setEmailTo(e.target.value)}
                     placeholder="name@example.com"
                     dir="ltr"
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-blue-500 text-gray-800 text-sm focus:outline-none"
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 dark:bg-slate-800 focus:border-blue-500 text-gray-800 dark:text-slate-100 text-sm focus:outline-none"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="block text-xs font-bold text-gray-700">
+                  <label className="block text-xs font-bold text-gray-700 dark:text-slate-200">
                     عنوان الرسالة المسبق (Subject):
                   </label>
                   <input
@@ -400,58 +400,58 @@ export const QrGenerator: React.FC = () => {
                     value={emailSubject}
                     onChange={(e) => setEmailSubject(e.target.value)}
                     placeholder="موضوع الرسالة"
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-blue-500 text-gray-800 text-sm focus:outline-none"
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 dark:bg-slate-800 focus:border-blue-500 text-gray-800 dark:text-slate-100 text-sm focus:outline-none"
                   />
                 </div>
               </div>
             )}
 
             {/* Customization Details (Colors & Error correction) */}
-            <div className="pt-4 border-t border-gray-100 space-y-4">
-              <span className="text-xs font-bold text-gray-700 flex items-center gap-1.5">
+            <div className="pt-4 border-t border-gray-100 dark:border-slate-800 space-y-4">
+              <span className="text-xs font-bold text-gray-700 dark:text-slate-200 flex items-center gap-1.5">
                 <Palette className="w-4 h-4 text-blue-600" />
                 <span>تخصيص ألوان وتصميم الباركود</span>
               </span>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
-                  <label className="block text-[11px] font-bold text-gray-500 mb-1">
+                  <label className="block text-[11px] font-bold text-gray-500 dark:text-slate-400 mb-1">
                     لون الرمز (Foreground)
                   </label>
-                  <div className="flex items-center gap-2 border border-gray-200 p-2 rounded-xl bg-gray-50/50">
+                  <div className="flex items-center gap-2 border border-gray-200 dark:border-slate-600 p-2 rounded-xl bg-gray-50/50 dark:bg-slate-800/60">
                     <input
                       type="color"
                       value={fgColor}
                       onChange={(e) => setFgColor(e.target.value)}
                       className="w-7 h-7 rounded-lg border-0 cursor-pointer p-0 bg-transparent"
                     />
-                    <span className="text-xs font-mono text-gray-700 uppercase font-bold">{fgColor}</span>
+                    <span className="text-xs font-mono text-gray-700 dark:text-slate-200 uppercase font-bold">{fgColor}</span>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-bold text-gray-500 mb-1">
+                  <label className="block text-[11px] font-bold text-gray-500 dark:text-slate-400 mb-1">
                     لون الخلفية (Background)
                   </label>
-                  <div className="flex items-center gap-2 border border-gray-200 p-2 rounded-xl bg-gray-50/50">
+                  <div className="flex items-center gap-2 border border-gray-200 dark:border-slate-600 p-2 rounded-xl bg-gray-50/50 dark:bg-slate-800/60">
                     <input
                       type="color"
                       value={bgColor}
                       onChange={(e) => setBgColor(e.target.value)}
                       className="w-7 h-7 rounded-lg border-0 cursor-pointer p-0 bg-transparent"
                     />
-                    <span className="text-xs font-mono text-gray-700 uppercase font-bold">{bgColor}</span>
+                    <span className="text-xs font-mono text-gray-700 dark:text-slate-200 uppercase font-bold">{bgColor}</span>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-bold text-gray-500 mb-1">
+                  <label className="block text-[11px] font-bold text-gray-500 dark:text-slate-400 mb-1">
                     مستوى تصحيح الأخطاء
                   </label>
                   <select
                     value={errorCorrection}
                     onChange={(e) => setErrorCorrection(e.target.value as any)}
-                    className="w-full px-3 py-2.5 rounded-xl border border-gray-200 bg-white text-xs font-bold text-gray-700 focus:outline-none"
+                    className="w-full px-3 py-2.5 rounded-xl border border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-xs font-bold text-gray-700 dark:text-slate-200 focus:outline-none"
                   >
                     <option value="L">منخفض (7% تعويض)</option>
                     <option value="M">متوسط (15% تعويض)</option>
@@ -465,13 +465,13 @@ export const QrGenerator: React.FC = () => {
           </div>
 
           {/* Right Live Preview Box (5 cols) */}
-          <div className="lg:col-span-5 bg-gray-50 border border-gray-200/80 rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-center text-center space-y-5">
+          <div className="lg:col-span-5 bg-gray-50 dark:bg-slate-800/60 border border-gray-200/80 dark:border-slate-700 rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-center text-center space-y-5">
             <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">
               المعاينة الحية للرمز
             </span>
 
             {/* QR Image Container with Crisp Border */}
-            <div className="p-4 bg-white rounded-2xl border border-gray-200/80 shadow-xs flex items-center justify-center">
+            <div className="p-4 bg-white rounded-2xl border border-gray-200/80 dark:border-slate-700 shadow-xs flex items-center justify-center">
               {qrDataUrl ? (
                 <img
                   src={qrDataUrl}
@@ -485,7 +485,7 @@ export const QrGenerator: React.FC = () => {
               )}
             </div>
 
-            <p className="text-xs text-gray-500 max-w-xs font-tajawal leading-relaxed">
+            <p className="text-xs text-gray-500 dark:text-slate-400 max-w-xs font-tajawal leading-relaxed">
               رمز QR ثابت (Static) يعمل مدى الحياة دون وسيط ولا حدود لعدد مرات المسح.
             </p>
 
@@ -504,7 +504,7 @@ export const QrGenerator: React.FC = () => {
               <button
                 type="button"
                 onClick={handleCopyLink}
-                className="w-full py-2.5 px-4 rounded-xl border border-gray-200 hover:bg-white text-gray-700 font-bold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-xs"
+                className="w-full py-2.5 px-4 rounded-xl border border-gray-200 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 text-gray-700 dark:text-slate-200 font-bold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-xs"
               >
                 {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                 <span>{copied ? 'تم نسخ المحتوى بنجاح!' : 'نسخ محتوى الرمز'}</span>

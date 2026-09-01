@@ -103,10 +103,10 @@ export const TextDiffTool: React.FC = () => {
 
   return (
     <div className="space-y-8">
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm p-6 sm:p-8 space-y-6">
         
         {/* Actions Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-700 pb-4">
           <div className="flex items-center gap-2">
             <button
               type="button"
@@ -114,7 +114,7 @@ export const TextDiffTool: React.FC = () => {
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1 ${
                 viewMode === 'split'
                   ? 'bg-blue-600 text-white shadow-xs'
-                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
               <Columns className="w-3.5 h-3.5" />
@@ -126,7 +126,7 @@ export const TextDiffTool: React.FC = () => {
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1 ${
                 viewMode === 'unified'
                   ? 'bg-blue-600 text-white shadow-xs'
-                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
               <List className="w-3.5 h-3.5" />
@@ -146,7 +146,7 @@ export const TextDiffTool: React.FC = () => {
             <button
               type="button"
               onClick={handleLoadSample}
-              className="px-2.5 py-1.5 text-xs text-slate-600 hover:bg-slate-100 font-bold rounded-lg transition-colors"
+              className="px-2.5 py-1.5 text-xs text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700/70 font-bold rounded-lg transition-colors"
             >
               نموذج تجريبي
             </button>
@@ -164,7 +164,7 @@ export const TextDiffTool: React.FC = () => {
         {/* Inputs */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <label className="block text-xs font-bold text-slate-700">
+            <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
               النص الأصلي (النسخة 1)
             </label>
             <textarea
@@ -172,12 +172,12 @@ export const TextDiffTool: React.FC = () => {
               value={leftText}
               onChange={(e) => setLeftText(e.target.value)}
               placeholder="ضع النص الأصلي هنا..."
-              className="w-full p-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 text-sm font-tajawal leading-relaxed resize-y focus:outline-none"
+              className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-600 focus:ring-2 dark:focus:ring-blue-900/40 focus:ring-blue-500 dark:focus:ring-blue-900/40 text-sm font-tajawal leading-relaxed resize-y focus:outline-none bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="block text-xs font-bold text-slate-700">
+            <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
               النص المعدل (النسخة 2)
             </label>
             <textarea
@@ -185,14 +185,14 @@ export const TextDiffTool: React.FC = () => {
               value={rightText}
               onChange={(e) => setRightText(e.target.value)}
               placeholder="ضع النص المعدل هنا لمقارنته..."
-              className="w-full p-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 text-sm font-tajawal leading-relaxed resize-y focus:outline-none"
+              className="w-full p-3 rounded-xl border border-slate-200 dark:border-slate-600 focus:ring-2 dark:focus:ring-blue-900/40 focus:ring-blue-500 dark:focus:ring-blue-900/40 text-sm font-tajawal leading-relaxed resize-y focus:outline-none bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100"
             />
           </div>
         </div>
 
         {/* Stats Pill bar */}
         <div className="flex flex-wrap items-center gap-3 pt-2">
-          <span className="text-xs font-bold text-slate-500">إحصائيات الفروقات:</span>
+          <span className="text-xs font-bold text-slate-500 dark:text-slate-400">إحصائيات الفروقات:</span>
           <span className="px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-lg text-xs font-bold">
             +{diffResult.addedCount} أسطر مضافة
           </span>
@@ -211,10 +211,10 @@ export const TextDiffTool: React.FC = () => {
           </span>
 
           {viewMode === 'split' ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 border border-slate-200 rounded-xl overflow-hidden text-xs font-tajawal">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden text-xs font-tajawal">
               {/* Left Column (Original) */}
-              <div className="divide-y divide-slate-100 bg-slate-50/50">
-                <div className="p-2 bg-slate-100 text-slate-600 font-bold border-b border-slate-200">
+              <div className="divide-y divide-slate-100 dark:divide-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
+                <div className="p-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700">
                   الأصل (النسخة السابقة)
                 </div>
                 {diffResult.lines.map((item, idx) => (
@@ -237,8 +237,8 @@ export const TextDiffTool: React.FC = () => {
               </div>
 
               {/* Right Column (Modified) */}
-              <div className="divide-y divide-slate-100 bg-white">
-                <div className="p-2 bg-slate-100 text-slate-600 font-bold border-b border-slate-200">
+              <div className="divide-y divide-slate-100 dark:divide-slate-700 bg-white dark:bg-slate-900">
+                <div className="p-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-700">
                   المعدل (النسخة الحالية)
                 </div>
                 {diffResult.lines.map((item, idx) => (
@@ -262,7 +262,7 @@ export const TextDiffTool: React.FC = () => {
             </div>
           ) : (
             /* Unified view */
-            <div className="border border-slate-200 rounded-xl overflow-hidden divide-y divide-slate-100 text-xs font-tajawal">
+            <div className="border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden divide-y divide-slate-100 dark:divide-slate-700 text-xs font-tajawal">
               {diffResult.lines.map((item, idx) => {
                 if (item.type === 'added') {
                   return (
@@ -295,7 +295,7 @@ export const TextDiffTool: React.FC = () => {
                   );
                 }
                 return (
-                  <div key={idx} className="p-2.5 bg-white text-slate-700 flex items-center gap-2">
+                  <div key={idx} className="p-2.5 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2">
                     <span className="text-slate-300 font-mono"> </span>
                     <span>{item.leftText}</span>
                   </div>

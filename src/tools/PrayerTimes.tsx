@@ -163,12 +163,12 @@ export const PrayerTimes: React.FC = () => {
 
   return (
     <div className="space-y-8">
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm p-6 sm:p-8 space-y-6">
         
         {/* City and Location Selector */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="w-full sm:w-72">
-            <label className="block text-xs font-bold text-slate-500 uppercase mb-1.5">
+            <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1.5">
               اختر المدينة أو العاصمة
             </label>
             <select
@@ -178,7 +178,7 @@ export const PrayerTimes: React.FC = () => {
                 setCustomCoords(null);
                 setSelectedCityIndex(Number(e.target.value));
               }}
-              className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white font-bold text-slate-800 text-sm focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 font-bold text-slate-800 dark:text-slate-100 text-sm focus:ring-2 focus:ring-blue-500"
             >
               {CITIES.map((c, idx) => (
                 <option key={idx} value={idx}>
@@ -265,10 +265,10 @@ export const PrayerTimes: React.FC = () => {
                 >
                   <Icon className="w-5 h-5" />
                 </div>
-                <span className="text-xs font-bold text-slate-700 block">{p.name}</span>
+                <span className="text-xs font-bold text-slate-700 dark:text-slate-200 block">{p.name}</span>
                 <span
                   className={`text-base sm:text-lg font-black block mt-1 ${
-                    isNext ? 'text-emerald-700' : isCurrent ? 'text-blue-700' : 'text-slate-900'
+                    isNext ? 'text-emerald-700 dark:text-emerald-400' : isCurrent ? 'text-blue-700 dark:text-blue-400' : 'text-slate-900 dark:text-white'
                   }`}
                 >
                   {formatTime(p.time)}
@@ -284,28 +284,28 @@ export const PrayerTimes: React.FC = () => {
         </div>
 
         {/* Sunnah times: Midnight & Last Third */}
-        <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-wrap items-center justify-around gap-4 text-xs font-tajawal">
+        <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl p-4 flex flex-wrap items-center justify-around gap-4 text-xs font-tajawal">
           <div className="text-center">
-            <span className="text-slate-400 block font-medium">منتصف الليل الشرعي</span>
-            <span className="font-extrabold text-slate-800 text-sm mt-0.5 block">
+            <span className="text-slate-400 dark:text-slate-500 block font-medium">منتصف الليل الشرعي</span>
+            <span className="font-extrabold text-slate-800 dark:text-slate-100 text-sm mt-0.5 block">
               {formatTime(sunnahTimes.middleOfTheNight)}
             </span>
           </div>
 
-          <div className="w-px h-8 bg-slate-200 hidden sm:block" />
+          <div className="w-px h-8 bg-slate-200 dark:bg-slate-700 hidden sm:block" />
 
           <div className="text-center">
-            <span className="text-slate-400 block font-medium">بداية الثلث الأخير (وقت التهجد)</span>
-            <span className="font-extrabold text-slate-800 text-sm mt-0.5 block">
+            <span className="text-slate-400 dark:text-slate-500 block font-medium">بداية الثلث الأخير (وقت التهجد)</span>
+            <span className="font-extrabold text-slate-800 dark:text-slate-100 text-sm mt-0.5 block">
               {formatTime(sunnahTimes.lastThirdOfTheNight)}
             </span>
           </div>
 
-          <div className="w-px h-8 bg-slate-200 hidden sm:block" />
+          <div className="w-px h-8 bg-slate-200 dark:bg-slate-700 hidden sm:block" />
 
           <div className="text-center">
-            <span className="text-slate-400 block font-medium">طريقة الحساب المعتمدة</span>
-            <span className="font-bold text-slate-700 text-xs mt-0.5 block">
+            <span className="text-slate-400 dark:text-slate-500 block font-medium">طريقة الحساب المعتمدة</span>
+            <span className="font-bold text-slate-700 dark:text-slate-200 text-xs mt-0.5 block">
               {activeCity.method === 'UmmAlQura' ? 'تقويم أم القرى (مكة المكرمة)' : 'رابطة العالم الإسلامي'}
             </span>
           </div>

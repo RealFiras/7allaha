@@ -109,7 +109,7 @@ export const HijriConverter: React.FC = () => {
 
   return (
     <div className="space-y-8">
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm p-6 sm:p-8 space-y-6">
         
         {/* Today's live date banner */}
         <div className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-md">
@@ -130,14 +130,14 @@ export const HijriConverter: React.FC = () => {
         </div>
 
         {/* Mode Switcher */}
-        <div className="flex gap-2 border-b border-slate-100 pb-4">
+        <div className="flex gap-2 border-b border-slate-100 dark:border-slate-700 pb-4">
           <button
             type="button"
             onClick={() => setConversionType('g2h')}
             className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
               conversionType === 'g2h'
                 ? 'bg-blue-600 text-white shadow-xs'
-                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
             }`}
           >
             <Calendar className="w-4 h-4" />
@@ -150,7 +150,7 @@ export const HijriConverter: React.FC = () => {
             className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
               conversionType === 'h2g'
                 ? 'bg-blue-600 text-white shadow-xs'
-                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
             }`}
           >
             <Moon className="w-4 h-4" />
@@ -163,25 +163,25 @@ export const HijriConverter: React.FC = () => {
           <div className="space-y-6 animate-in fade-in duration-150">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label className="block text-xs font-bold text-slate-700 uppercase">
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase">
                   اختر التاريخ الميلادي
                 </label>
                 <input
                   type="date"
                   value={gDateInput}
                   onChange={(e) => setGDateInput(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 font-bold text-slate-800 text-base"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-900/40 font-bold text-slate-800 dark:text-slate-100 text-base"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="block text-xs font-bold text-slate-700 uppercase">
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase">
                   تعديل رؤية الهلال (اختياري)
                 </label>
                 <select
                   value={adjustment}
                   onChange={(e) => setAdjustment(Number(e.target.value))}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white font-bold text-slate-800 text-sm focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 font-bold text-slate-800 dark:text-slate-100 text-sm focus:ring-2 focus:ring-blue-500"
                 >
                   <option value={-2}>-2 يوم</option>
                   <option value={-1}>-1 يوم</option>
@@ -220,13 +220,13 @@ export const HijriConverter: React.FC = () => {
           <div className="space-y-6 animate-in fade-in duration-150">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="space-y-2">
-                <label className="block text-xs font-bold text-slate-700 uppercase">
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase">
                   اليوم في الشهر
                 </label>
                 <select
                   value={hDayInput}
                   onChange={(e) => setHDayInput(Number(e.target.value))}
-                  className="w-full px-3 py-3 rounded-xl border border-slate-300 bg-white font-bold text-slate-800 text-sm focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 font-bold text-slate-800 dark:text-slate-100 text-sm focus:ring-2 focus:ring-blue-500"
                 >
                   {Array.from({ length: 30 }, (_, i) => i + 1).map((d) => (
                     <option key={d} value={d}>
@@ -237,13 +237,13 @@ export const HijriConverter: React.FC = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-xs font-bold text-slate-700 uppercase">
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase">
                   الشهر الهجري
                 </label>
                 <select
                   value={hMonthInput}
                   onChange={(e) => setHMonthInput(Number(e.target.value))}
-                  className="w-full px-3 py-3 rounded-xl border border-slate-300 bg-white font-bold text-slate-800 text-sm focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 font-bold text-slate-800 dark:text-slate-100 text-sm focus:ring-2 focus:ring-blue-500"
                 >
                   {HIJRI_MONTHS.map((m, idx) => (
                     <option key={idx} value={idx + 1}>
@@ -254,7 +254,7 @@ export const HijriConverter: React.FC = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-xs font-bold text-slate-700 uppercase">
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase">
                   السنة الهجرية
                 </label>
                 <input
@@ -263,7 +263,7 @@ export const HijriConverter: React.FC = () => {
                   onChange={(e) => setHYearInput(Number(e.target.value))}
                   min="1"
                   max="2000"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 font-bold text-slate-800 text-sm"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-900/40 font-bold text-slate-800 dark:text-slate-100 text-sm"
                 />
               </div>
             </div>
@@ -292,41 +292,41 @@ export const HijriConverter: React.FC = () => {
         )}
 
         {/* Major Islamic Occasions Reference Table */}
-        <div className="pt-4 border-t border-slate-100">
-          <span className="text-xs font-bold text-slate-700 block mb-3">
+        <div className="pt-4 border-t border-slate-100 dark:border-slate-700">
+          <span className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-3">
             أبرز المناسبات والأعياد الإسلامية ومواعيدها بالتقويم الهجري:
           </span>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 text-xs font-tajawal">
-            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <strong className="text-slate-800 block">رأس السنة الهجرية</strong>
+            <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
+              <strong className="text-slate-800 dark:text-slate-100 block">رأس السنة الهجرية</strong>
               <span className="text-emerald-700 font-bold">1 محرم</span>
             </div>
-            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <strong className="text-slate-800 block">يوم عاشوراء</strong>
+            <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
+              <strong className="text-slate-800 dark:text-slate-100 block">يوم عاشوراء</strong>
               <span className="text-emerald-700 font-bold">10 محرم</span>
             </div>
-            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <strong className="text-slate-800 block">المولد النبوي الشريف</strong>
+            <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
+              <strong className="text-slate-800 dark:text-slate-100 block">المولد النبوي الشريف</strong>
               <span className="text-emerald-700 font-bold">12 ربيع الأول</span>
             </div>
-            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <strong className="text-slate-800 block">ليلة الإسراء والمعراج</strong>
+            <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
+              <strong className="text-slate-800 dark:text-slate-100 block">ليلة الإسراء والمعراج</strong>
               <span className="text-emerald-700 font-bold">27 رجب</span>
             </div>
-            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <strong className="text-slate-800 block">بداية شهر رمضان</strong>
+            <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
+              <strong className="text-slate-800 dark:text-slate-100 block">بداية شهر رمضان</strong>
               <span className="text-emerald-700 font-bold">1 رمضان</span>
             </div>
-            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <strong className="text-slate-800 block">عيد الفطر المبارك</strong>
+            <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
+              <strong className="text-slate-800 dark:text-slate-100 block">عيد الفطر المبارك</strong>
               <span className="text-emerald-700 font-bold">1 شوال</span>
             </div>
-            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <strong className="text-slate-800 block">يوم عرفة</strong>
+            <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
+              <strong className="text-slate-800 dark:text-slate-100 block">يوم عرفة</strong>
               <span className="text-emerald-700 font-bold">9 ذو الحجة</span>
             </div>
-            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-              <strong className="text-slate-800 block">عيد الأضحى المبارك</strong>
+            <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
+              <strong className="text-slate-800 dark:text-slate-100 block">عيد الأضحى المبارك</strong>
               <span className="text-emerald-700 font-bold">10 ذو الحجة</span>
             </div>
           </div>

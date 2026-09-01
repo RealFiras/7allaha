@@ -162,33 +162,33 @@ export const Base64Tool: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-3xl border border-gray-200/80 shadow-xs p-6 sm:p-8 space-y-6">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl border border-gray-200/80 dark:border-slate-700 shadow-xs p-6 sm:p-8 space-y-6">
         
         {/* Header Title & Switcher */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-gray-100 pb-5">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-gray-100 dark:border-slate-800 pb-5">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
                 <Binary className="w-4 h-4" />
               </div>
-              <h2 className="text-xl font-bold text-gray-900">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                 أداة تشفير وفك تشفير Base64
               </h2>
             </div>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-500 dark:text-slate-400">
               دعم كامل للغة العربية UTF-8 مع تحويل الصور والملفات محلياً 100%
             </p>
           </div>
 
           {/* Mode Navigation Pills */}
-          <div className="flex items-center p-1 bg-gray-100/80 rounded-2xl border border-gray-200/60 w-full sm:w-auto">
+          <div className="flex items-center p-1 bg-gray-100/80 dark:bg-slate-800 rounded-2xl border border-gray-200/60 dark:border-slate-700 w-full sm:w-auto">
             <button
               type="button"
               onClick={() => setMode('text')}
               className={`flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 mode === 'text'
-                  ? 'bg-white text-blue-600 shadow-xs'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-xs'
+                  : 'text-gray-600 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'
               }`}
             >
               نصوص UTF-8
@@ -198,8 +198,8 @@ export const Base64Tool: React.FC = () => {
               onClick={() => setMode('file')}
               className={`flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 mode === 'file'
-                  ? 'bg-white text-blue-600 shadow-xs'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-xs'
+                  : 'text-gray-600 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'
               }`}
             >
               صور وملفات
@@ -212,7 +212,7 @@ export const Base64Tool: React.FC = () => {
           <div className="space-y-6">
             
             {/* Action Bar (Encode / Decode / Swap / Clear) */}
-            <div className="flex flex-wrap items-center justify-between gap-3 bg-gray-50 p-3 rounded-2xl border border-gray-200/60">
+            <div className="flex flex-wrap items-center justify-between gap-3 bg-gray-50 dark:bg-slate-800/60 p-3 rounded-2xl border border-gray-200/60 dark:border-slate-700">
               <div className="flex items-center gap-1.5">
                 <button
                   type="button"
@@ -220,7 +220,7 @@ export const Base64Tool: React.FC = () => {
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
                     textMode === 'encode'
                       ? 'bg-blue-600 text-white shadow-xs'
-                      : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-100'
+                      : 'bg-white dark:bg-slate-800 text-gray-600 dark:text-slate-300 border border-gray-200 dark:border-slate-600 hover:bg-gray-100 dark:hover:bg-slate-700/70'
                   }`}
                 >
                   تشفير (Encode to Base64)
@@ -231,7 +231,7 @@ export const Base64Tool: React.FC = () => {
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
                     textMode === 'decode'
                       ? 'bg-emerald-600 text-white shadow-xs'
-                      : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-100'
+                      : 'bg-white dark:bg-slate-800 text-gray-600 dark:text-slate-300 border border-gray-200 dark:border-slate-600 hover:bg-gray-100 dark:hover:bg-slate-700/70'
                   }`}
                 >
                   فك التشفير (Decode to Text)
@@ -242,7 +242,7 @@ export const Base64Tool: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleSwap}
-                  className="px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-gray-700 hover:text-blue-600 border border-gray-200 hover:border-blue-200 transition-colors flex items-center gap-1.5 shadow-xs"
+                  className="px-3 py-1.5 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-200 hover:text-blue-600 border border-gray-200 dark:border-slate-600 hover:border-blue-200 transition-colors flex items-center gap-1.5 shadow-xs"
                   title="استبدال النص الناتج ليصبح في صندوق الإدخال"
                 >
                   <ArrowLeftRight className="w-3.5 h-3.5" />
@@ -268,21 +268,21 @@ export const Base64Tool: React.FC = () => {
               <button
                 type="button"
                 onClick={() => handleSample('أهلاً بالعالم! تحويل فوري بدعم كامل للغة العربية.')}
-                className="px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-blue-50 hover:text-blue-600 text-gray-600 font-medium transition-colors border border-gray-200/50"
+                 className="px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700/70 hover:text-blue-600 text-gray-600 dark:text-slate-300 font-medium transition-colors border border-gray-200/50 dark:border-slate-600"
               >
                 نص عربي
               </button>
               <button
                 type="button"
                 onClick={() => handleSample('{"user": "Adawaty", "status": "active", "code": 200}')}
-                className="px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-blue-50 hover:text-blue-600 text-gray-600 font-medium transition-colors border border-gray-200/50"
+                 className="px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700/70 hover:text-blue-600 text-gray-600 dark:text-slate-300 font-medium transition-colors border border-gray-200/50 dark:border-slate-600"
               >
                 كود JSON
               </button>
               <button
                 type="button"
                 onClick={() => handleSample('Hello World! Base64 UTF-8 Fast Encode.')}
-                className="px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-blue-50 hover:text-blue-600 text-gray-600 font-medium transition-colors border border-gray-200/50"
+                 className="px-2.5 py-1 rounded-lg bg-gray-100 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700/70 hover:text-blue-600 text-gray-600 dark:text-slate-300 font-medium transition-colors border border-gray-200/50 dark:border-slate-600"
               >
                 English Text
               </button>
@@ -307,7 +307,7 @@ export const Base64Tool: React.FC = () => {
                   onChange={(e) => handleInputChange(e.target.value)}
                   placeholder={textMode === 'encode' ? 'اكتب أو الصق أي نص هنا للتشفير الفوري...' : 'الصق شفرة Base64 هنا لفك التشفير...'}
                   dir={textMode === 'decode' ? 'ltr' : 'auto'}
-                  className="w-full p-4 rounded-2xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 text-gray-800 text-sm font-tajawal focus:outline-none transition-all placeholder:text-gray-400 bg-gray-50/50 hover:bg-white focus:bg-white"
+                  className="w-full p-4 rounded-2xl border border-gray-200 dark:border-slate-600 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-900/40 text-gray-800 dark:text-slate-100 text-sm font-tajawal focus:outline-none transition-all placeholder:text-gray-400 dark:placeholder:text-slate-500 bg-gray-50/50 dark:bg-slate-800/60 hover:bg-white dark:hover:bg-slate-800 focus:bg-white dark:focus:bg-slate-800"
                 />
               </div>
 
@@ -330,7 +330,7 @@ export const Base64Tool: React.FC = () => {
                       <button
                         type="button"
                         onClick={handleDownloadText}
-                        className="text-xs text-gray-600 hover:text-gray-900 font-bold flex items-center gap-1 bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded-lg transition-colors"
+                        className="text-xs text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-slate-200 font-bold flex items-center gap-1 bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 px-2 py-1 rounded-lg transition-colors"
                         title="تحميل كملف نصي"
                       >
                         <Download className="w-3.5 h-3.5" />
@@ -345,7 +345,7 @@ export const Base64Tool: React.FC = () => {
                   value={outputText}
                   dir={textMode === 'encode' ? 'ltr' : 'auto'}
                   placeholder="ستظهر النتيجة الفورية هنا بمجرد الكتابة..."
-                  className="w-full p-4 rounded-2xl border border-gray-200 bg-gray-50/80 text-gray-800 text-sm font-mono focus:outline-none select-all"
+                  className="w-full p-4 rounded-2xl border border-gray-200 dark:border-slate-600 bg-gray-50/80 dark:bg-slate-800/60 text-gray-800 dark:text-slate-100 text-sm font-mono focus:outline-none select-all"
                 />
               </div>
 
@@ -377,7 +377,7 @@ export const Base64Tool: React.FC = () => {
               className={`border-2 border-dashed rounded-3xl p-8 sm:p-12 text-center transition-all relative cursor-pointer ${
                 isDragging
                   ? 'border-blue-500 bg-blue-50/50 scale-[1.01]'
-                  : 'border-gray-300 hover:border-blue-400 bg-gray-50/60 hover:bg-blue-50/20'
+                   : 'border-gray-300 dark:border-slate-600 hover:border-blue-400 bg-gray-50/60 dark:bg-slate-800/60 hover:bg-blue-50/20'
               }`}
             >
               <input
@@ -389,7 +389,7 @@ export const Base64Tool: React.FC = () => {
                 <div className="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto shadow-xs">
                   <Upload className="w-7 h-7" />
                 </div>
-                <h3 className="text-base font-bold text-gray-900">
+                <h3 className="text-base font-bold text-gray-900 dark:text-white">
                   اسحب أي ملف هنا أو انقر للتصفح من جهازك
                 </h3>
                 <p className="text-xs text-gray-500 font-normal">
@@ -400,33 +400,33 @@ export const Base64Tool: React.FC = () => {
 
             {/* File Converted Results */}
             {fileBase64 && (
-              <div className="space-y-6 pt-4 border-t border-gray-100 animate-in fade-in duration-200">
+              <div className="space-y-6 pt-4 border-t border-gray-100 dark:border-slate-800 animate-in fade-in duration-200">
                 
                 {/* File Meta Pill */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs bg-gray-50 p-4 rounded-2xl border border-gray-200/70">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs bg-gray-50 dark:bg-slate-800/60 p-4 rounded-2xl border border-gray-200/70 dark:border-slate-700">
                   <div>
                     <span className="text-gray-400 block mb-0.5">اسم الملف:</span>
-                    <strong className="text-gray-800 font-bold truncate block">{fileName}</strong>
+                    <strong className="text-gray-800 dark:text-slate-100 font-bold truncate block">{fileName}</strong>
                   </div>
                   <div>
                     <span className="text-gray-400 block mb-0.5">الحجم الأصلي:</span>
-                    <strong className="text-gray-800 font-bold">{fileSize}</strong>
+                    <strong className="text-gray-800 dark:text-slate-100 font-bold">{fileSize}</strong>
                   </div>
                   <div>
                     <span className="text-gray-400 block mb-0.5">نوع الامتداد (MIME):</span>
-                    <strong className="text-gray-800 font-mono font-bold truncate block">{fileType}</strong>
+                    <strong className="text-gray-800 dark:text-slate-100 font-mono font-bold truncate block">{fileType}</strong>
                   </div>
                 </div>
 
                 {/* Image Preview Box */}
                 {fileType.startsWith('image/') && (
-                  <div className="text-center p-6 bg-gray-50/80 rounded-2xl border border-gray-200/60 max-w-md mx-auto space-y-2">
+                  <div className="text-center p-6 bg-gray-50/80 dark:bg-slate-800/60 rounded-2xl border border-gray-200/60 dark:border-slate-700 max-w-md mx-auto space-y-2">
                     <img
                       src={fileBase64}
                       alt="معاينة الصورة"
-                      className="max-h-48 max-w-full mx-auto rounded-xl shadow-xs border border-gray-200 bg-white"
+                      className="max-h-48 max-w-full mx-auto rounded-xl shadow-xs border border-gray-200 dark:border-slate-700 bg-white"
                     />
-                    <span className="text-[11px] text-gray-500 font-medium block">
+                    <span className="text-[11px] text-gray-500 dark:text-slate-400 font-medium block">
                       معاينة الصورة المضمنة مباشرة من كود الـ Base64
                     </span>
                   </div>
@@ -435,7 +435,7 @@ export const Base64Tool: React.FC = () => {
                 {/* Base64 Data URL Output */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <label className="text-xs font-bold text-gray-700">
+                    <label className="text-xs font-bold text-gray-700 dark:text-slate-200">
                       كود Base64 Data URL الكامل (جاهز للاستخدام في HTML و CSS):
                     </label>
                     <button
@@ -459,14 +459,14 @@ export const Base64Tool: React.FC = () => {
                 {/* HTML & CSS Snippets */}
                 {fileType.startsWith('image/') && (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                    <div className="p-3 bg-gray-50 rounded-xl border border-gray-200/60 space-y-1">
-                      <span className="text-[11px] font-bold text-gray-500">كود HTML المضمن:</span>
+                    <div className="p-3 bg-gray-50 dark:bg-slate-800/60 rounded-xl border border-gray-200/60 dark:border-slate-700 space-y-1">
+                      <span className="text-[11px] font-bold text-gray-500 dark:text-slate-400">كود HTML المضمن:</span>
                       <code className="text-[11px] font-mono text-blue-600 block truncate" dir="ltr">
                         {`<img src="${fileBase64.slice(0, 45)}..." alt="Adawaty Image" />`}
                       </code>
                     </div>
-                    <div className="p-3 bg-gray-50 rounded-xl border border-gray-200/60 space-y-1">
-                      <span className="text-[11px] font-bold text-gray-500">كود CSS Background:</span>
+                    <div className="p-3 bg-gray-50 dark:bg-slate-800/60 rounded-xl border border-gray-200/60 dark:border-slate-700 space-y-1">
+                      <span className="text-[11px] font-bold text-gray-500 dark:text-slate-400">كود CSS Background:</span>
                       <code className="text-[11px] font-mono text-emerald-600 block truncate" dir="ltr">
                         {`background-image: url("${fileBase64.slice(0, 45)}...");`}
                       </code>
